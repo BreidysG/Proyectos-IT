@@ -6,6 +6,7 @@
     box-sizing: border-box;
     text-decoration: none;
     border: none;
+    scroll-behavior: smooth;
     outline: none;
     font-family: 'Poppins', sans-serif;
    
@@ -46,13 +47,14 @@ nav{
 }
 
 .nav-links-container a:hover{
-    color: var(--blueclarity);
+    color: var(--blueKing);
 }
 
 nav .burguer-menu-container i{
     font-size: 40px;
     cursor: pointer;
 }
+
 
 nav .burguer-menu-container{
     display: none;
@@ -77,7 +79,7 @@ nav .burguer-menu-container{
 }
 
 .home-container h1 span{
-    color: var(--blueKing);
+    color: var(--blueDark);
 }
 
 .home-container p{
@@ -102,6 +104,11 @@ nav .burguer-menu-container{
     text-align: center;
 }
 
+.btn:hover{
+    background-color: var(--bluesky);
+    transition: all 0.4s ease;
+}
+
 .btn-transparent{
     background-color: white;
     color: var(--blueKing);
@@ -110,7 +117,11 @@ nav .burguer-menu-container{
     letter-spacing: 1px;
     opacity: 50%;
 }
-
+.btn-transparent:hover{
+    background-color: white;
+    opacity: 90%;
+    transition: all 0.4s ease;
+}
 .about{
     display: flex;
     flex-direction: column;
@@ -310,15 +321,18 @@ form textarea{
     flex-direction: column-reverse;
     align-items: center;
   }
-  footer div img{
+  footer a img{
     width: 200px;
+    cursor: pointer;
   }
 
   footer div i{
     font-size: 40px;
     color: var(--blueclarity);
   }
-
+  footer div i:hover{
+    color: var(--blueKing);
+  }
   @media (max-width: 1200px) {
 
     .about-img img{
