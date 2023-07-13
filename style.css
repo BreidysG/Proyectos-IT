@@ -341,7 +341,7 @@ form textarea{
         position:absolute;
         flex-direction: column;
         align-items: end;
-        bottom: 58%;
+        top: 106px;
         left: 0;
         width: 100%;
         padding: 1rem 3%;
@@ -442,3 +442,77 @@ form textarea{
     }
 
   } 
+
+  @media (max-width: 568px){
+    .about-img img{
+        width: 400px;
+    }
+    .about-text h3{
+        margin-top: 25px;
+    }
+    .about-text p{
+        padding-top: 25px;
+        padding-left: 20px
+    }
+
+    .about-btn-container{
+        margin-left: 20px;
+    }
+  }
+
+  @media (max-width: 422px){
+    .home-container h1 {
+        font-size: 2.7rem;
+    }
+    .about h2 {
+        font-size: 2.2rem;
+    }
+    .about-img img {
+        width: 350px;
+    }
+    .about-text h3 {
+        font-size: 1.3rem;
+    }
+    .services .services-text h2 {
+        font-size: 2.2rem;
+    }
+    .services-card-container {
+        grid-template-columns: minmax(250px, 300px);
+    }
+    .contact-text-container h2 {
+        font-size: 2.2rem;
+    }
+    .contact-text-container h3 {
+        font-size: 1.2rem;
+    }
+    form {
+        width: 100%;
+    }
+  }
+
+  @media (max-width: 380px){
+    section, .home {
+        padding: 6rem 9% 2rem;
+    }
+    .home-container h1 {
+        font-size: 2.3rem;
+    }
+    .home-container p {
+        margin-top: 22px;
+    }
+    .about h2 {
+        font-size: 2rem;
+    }
+    .about-img img {
+        width: 330px;
+    }
+    .services .services-text h2 {
+        font-size: 2rem;
+    }
+    .contact-text-container h2 {
+        font-size: 2rem;
+    }
+    .contact-text-container h3 {
+        font-size: 1rem;
+    }
+  }
