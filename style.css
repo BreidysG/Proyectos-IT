@@ -172,15 +172,19 @@ nav .burguer-menu-container{
     justify-content: center;
 }
 
+.about-complete h2{
+    margin-bottom: 80px;
+}
+
 .about-complete-containers{
-    display: grid;
-    grid-template-columns: 1fr 1.5fr;
+    display: flex;
     gap: 10px;
     margin-bottom: 150px;
+    align-items: center;
 }
 
 .about-complete-containers img{
-    width: 700px;
+    width: 600px;
     margin-left: 20px;
 }
 .about-complete-containers h3{
@@ -201,7 +205,7 @@ nav .burguer-menu-container{
 
 .about-complete-containers #quote{
     position: absolute
-   
+
 }
 
 .services {
@@ -382,13 +386,16 @@ form textarea{
     .about-img img{
         width: 500px;
     }
+
+    .about-complete-containers img{
+        width: 450px;
+    }
     .services-card-container{
         justify-content: center;
         grid-template-columns: repeat(2, minmax(250px, 350px));
         gap: 35px;
     }
   }
-
   @media (max-width: 1020px) {
 
     nav .burguer-menu-container{
@@ -425,6 +432,15 @@ form textarea{
         align-items: center;
     }
 
+    .about-complete-containers{
+        flex-direction: column;
+    }
+    .about-complete-containers.second{
+        flex-direction: column-reverse;
+    }
+    .about-complete-containers img{
+        width: 600px;
+    }
     .contact{
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr;
@@ -436,6 +452,9 @@ form textarea{
       }
   }
   @media (max-width: 800px) {
+    .about-complete-containers img{
+        width: 500px;
+    }
     .services-card-container{
         grid-template-columns: minmax(250px, 350px);
     }
@@ -455,19 +474,21 @@ form textarea{
         font-size: 1rem;
     }
 
-    .about h2{
+    .about h2, .about-complete h2{
         font-size: 2.5rem;
         
     }
 
-    .about-text h3{
+    .about-text h3, .about-complete-containers h3{
         font-size: 1.5rem ;
     }
 
-    .about-text p{
+    .about-text p .about-complete-containers p{
        font-size: 1rem;
     }
-
+    .about-complete-containers img{
+        width: 400px;
+    }
     .services .services-text h2{
         font-size: 2.5rem;
     }
@@ -516,6 +537,9 @@ form textarea{
     .about-btn-container{
         margin-left: 20px;
     }
+    .about-complete-containers img{
+        width: 350px;
+    }
   }
 
   @media (max-width: 422px){
@@ -530,6 +554,10 @@ form textarea{
     }
     .about-text h3 {
         font-size: 1.3rem;
+    }
+
+    .about-complete-containers img{
+        width: 300px;
     }
     .services .services-text h2 {
         font-size: 2.2rem;
