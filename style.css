@@ -130,7 +130,7 @@ nav .burguer-menu-container{
 }
 
 
-.about h2{
+.about h2, .about-complete h2{
     font-size: 3rem;
     color: var(--blueDark);
     margin-bottom: 40px;
@@ -165,6 +165,45 @@ nav .burguer-menu-container{
     width: 600px;
 }
 
+.about-complete{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-complete-containers{
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 10px;
+    margin-bottom: 150px;
+}
+
+.about-complete-containers img{
+    width: 700px;
+    margin-left: 20px;
+}
+.about-complete-containers h3{
+    font-size: 2rem;
+    color: var(--blueDark);
+    margin-bottom:15px;
+}
+
+.about-complete-containers p{
+    padding: 15px;
+    letter-spacing: .5px;
+}
+
+.about-complete-containers i{
+    font-size: 50px;
+    color: var(--blueDark);
+}
+
+.about-complete-containers #quote{
+    position: absolute
+   
+}
+
 .services {
     background-color: #6d6c6c2e;
     padding: 10rem 4% 2rem;
@@ -177,6 +216,7 @@ nav .burguer-menu-container{
 .services .services-text h2{
     font-size: 3rem;
     color: var(--blueDark);
+
 }
 
 .services .services-text p{
@@ -186,8 +226,10 @@ nav .burguer-menu-container{
 .services-card-container{
     margin-top: 20px;
     display: grid;
-    grid-template-columns: repeat(4, minmax(250px, 350px));
+    grid-template-columns: repeat(3, minmax(250px, 400px));
+    justify-content: center;
     gap: 25px;
+    text-align: center;
 }
 
 .services-card{
@@ -228,8 +270,10 @@ nav .burguer-menu-container{
 .services-card p{
     margin-top: 20px;
     margin-bottom: 40px;
+    padding: 15px;
     font-size: 1rem;
-    text-align: justify;
+    text-align: left;
+
 }
 
 .contact{
@@ -391,7 +435,11 @@ form textarea{
         text-align: center; /* Centrar el contenido */
       }
   }
-
+  @media (max-width: 800px) {
+    .services-card-container{
+        grid-template-columns: minmax(250px, 350px);
+    }
+  }
   @media (max-width: 640px) {
     .home-container h1{
         font-size: 3rem;
@@ -426,10 +474,6 @@ form textarea{
 
     .services .services-text p{
         font-size: 1rem;
-    }
-
-    .services-card-container{
-        grid-template-columns: minmax(250px, 350px);
     }
 
     .contact {
