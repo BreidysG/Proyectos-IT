@@ -20,20 +20,19 @@
             <div class="burguer-menu-container" id="menu"><i class='bx bx-menu'></i></div>
             
             <div class="nav-links-container" id="navLinks">
-                <a href="#home">Inicio</a>
-                <a href="#about">Sobre Nosotros</a>
-                <a href="#services">Servicios</a>
-                <a href="#contact">Contacto</a>
+                <a href="#home" class="link">Inicio</a>
+                <a href="#about" class="link" id="link-about">Sobre Nosotros</a>
+                <a href="#services" class="link">Servicios</a>
+                <a href="#contact" class="link">Contacto</a>
             </div>
         </nav>
-
+    </header>
         <section class="home" id="home">
             <div class="home-container">
                 <h1>PROYECTOS <span>IT</span></h1>
                 <P>Apoyamos el crecimiento de pymes proporcionando herramientas tecnológicas eficientes y personalizadas.</P>
                 <div class="home-container-btn">
-                    <a href="#" class="btn btn-transparent">Leer más</a>
-                    <a href="#" class="btn">Contacto</a>
+                    <a href="#contact" class="btn">Contacto</a>
                 </div>
             </div>
         </section>
@@ -45,8 +44,7 @@
                     <h3>Bienvenidos</h3>
                     <p>Nuestro enfoque se centra en mejorar la comunicación, fortalecer la gestión de clientes, optimizar la productividad y garantizar la seguridad de los sistemas informáticos. Creemos que al impulsar la transformación digital en las pymes, podemos contribuir a su éxito a largo plazo y obtener un reconocimiento enfocado a nuestros resultados.</p>
                     <div class="about-btn-container">
-                        <a href="#" class="btn btn-transparent">Leer más</a>
-                        <a href="#contact" class="btn">Contacto</a>
+                        <a href="#" class="btn btn-transparent" id="btn-read-more">Leer más</a>
                     </div>
                     
                 </div>
@@ -57,7 +55,7 @@
            
         </section>
 
-        <section class="about-complete">
+        <section class="about-complete" id="about-complete">
             <h2>Sobre Nosotros</h2>
             <div class="about-complete-containers">
                 <div class="about-complete-text">
@@ -80,6 +78,7 @@
                 </div>
                 <img src="./assets/fondo.jpg" alt="">
             </div>
+            <a href="#" class="btn btn-transparent" id="btn-back">Volver</a>
         </section>
  
         <section class="services" id="services">
@@ -141,42 +140,39 @@
         </section>
 
         <section class="contact" id="contact">
-            <div class="contact-text-container">
-                <h2>Contacto</h2>
-                <h3>¿Tienes alguna pregunta?</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae, accusamus. Voluptatum impedit minima tenetur ullam architecto et eius saepe id facilis iure quibusdam consequatur.</p>
-            </div>
-            <div class="contact-info-container">
-                <div class="contact-info-box">
-                    <h3>Correo</h3>
-                    <p>email@gmail.com</p>
+            <h2>Contacto</h2>
+            <div class="contact-container">
+                <div class="contact-text-container">
+                    <h3>¿Tienes alguna pregunta?</h3>
+                    <p>Estamos aquí para ayudarte. Si necesitas más información sobre nuestros productos o servicios, o simplemente quieres hacernos alguna consulta, no dudes en ponerte en contacto con nosotros. Estaremos encantados de responder a todas tus preguntas y ayudarte en lo que necesites.</p>
                 </div>
-                <div class="contact-info-box">
-                    <h3>Télefono</h3>
-                    <p>+582442445325</p>
+                <div class="contact-info-container">
+                    <div class="contact-info-box">
+                        <h3>Correo</h3>
+                        <p>info@proyectos-it.com</p>
+                    </div>
+                    <div class="contact-info-box">
+                        <h3>Télefono</h3>
+                        <p>+57 3173633573</p>
+                    </div>
                 </div>
-                <div class="contact-info-box">
-                    <h3>Dirección</h3>
-                    <p>Strand, London WC2R 2LS, UK
-                    </p>
-                </div>
+                <form action="#" method="#">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                  
+                    <label for="correo">Correo electrónico:</label>
+                    <input type="email" id="correo" name="correo" required>
+                  
+                    <label for="telefono">Teléfono (Opcional)</label>
+                    <input type="tel" id="telefono" name="telefono" required>
+                  
+                    <label for="mensaje">Mensaje:</label>
+                    <textarea id="mensaje" rows="5" name="mensaje" required></textarea>
+                  
+                    <button type="submit">Enviar</button>
+                  </form>
             </div>
 
-            <form action="#" method="#">
-                <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" name="nombre" required>
-              
-                <label for="correo">Correo electrónico:</label>
-                <input type="email" id="correo" name="correo" required>
-              
-                <label for="telefono">Teléfono (Opcional)</label>
-                <input type="tel" id="telefono" name="telefono" required>
-              
-                <label for="mensaje">Mensaje:</label>
-                <textarea id="mensaje" rows="5" name="mensaje" required></textarea>
-              
-                <button type="submit">Enviar</button>
-              </form>
         </section>
 
         <footer>
@@ -184,12 +180,14 @@
                 <img src="./assets/logo2_original.png" alt="Logo Proyectos IT">
             </a>
             <div>
-                <a href=""><i class='bx bxl-facebook-circle'></i></a>
-                <a href=""><i class='bx bxl-whatsapp' ></i></a>
-                <a href=""><i class='bx bx-envelope'></i></a>
+                <a href="https://www.facebook.com/proyectositsas" target="_blank"><i class='bx bxl-facebook-circle'></i></a>
+                <a href="https://www.instagram.com/proyectos_it/" target="_blank"><i class='bx bxl-instagram' ></i></a>
+                <a href="https://wa.me/+573173633573" target="_blank"><i class='bx bxl-whatsapp' ></i></a>
             </div>
         </footer>
-    </header>
+    
+    <script src="https://unpkg.com/scrollreveal"></script>
+
     <script src="/main.js"></script>
 </body>
 </html>

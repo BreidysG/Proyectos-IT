@@ -24,11 +24,15 @@ section {
     min-height: 100vh;
     padding: 10rem 9% 2rem;
 }
-
+header{
+    border-bottom: 1px solid #ccc;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 1;
+}
 nav{
-    width: 90%;
     margin: 0 auto;
-    padding: 20px 0;
+    padding: 20px 20px;
     background-color: white;
     display: flex;
     justify-content: space-between;
@@ -40,14 +44,28 @@ nav{
     width: 240px;
 }
 
-.nav-links-container a{
+.nav-links-container a, .link-about{
     font-size: 1.2rem;
     margin-left: 15px;
     color: var(--bluesky);
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.3s ease-in-out;
 }
+
+.nav-links-container .link-about-section{
+    color: var(--gray);
+    border: none;
+}
+
 
 .nav-links-container a:hover{
     color: var(--blueKing);
+    border-bottom: 2px solid var(--blueKing);
+}
+
+.nav-links-container .link-about-section:hover{
+    color: var(--gray);
+    border-bottom: none;
 }
 
 nav .burguer-menu-container i{
@@ -83,9 +101,12 @@ nav .burguer-menu-container{
 }
 
 .home-container p{
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     text-align: center;
     margin-top: 10px;
+    font-style: italic;
+    background-color: #508ec6bf;
+    color: white;
 }
 
 .home-container-btn{
@@ -166,9 +187,8 @@ nav .burguer-menu-container{
 }
 
 .about-complete{
-    display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: start;
     justify-content: center;
 }
 
@@ -206,6 +226,10 @@ nav .burguer-menu-container{
 .about-complete-containers #quote{
     position: absolute
 
+}
+
+.about-complete{
+    display: none;
 }
 
 .services {
@@ -261,7 +285,7 @@ nav .burguer-menu-container{
 }
 
 .services-card-icon{
-    font-size: 4rem;
+    font-size: 3.5rem;
     color: var(--blueDark);
 }
 
@@ -279,16 +303,21 @@ nav .burguer-menu-container{
     text-align: left;
 
 }
-
-.contact{
+.contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8rem 9% 2rem
+}
+.contact h2{
+    font-size: 3rem;
+    color: var(--blueDark);
+    margin-bottom: 40px;
+}
+.contact-container{
   display: grid;
   grid-template-columns: 1fr 1fr 1.5fr;
   grid-gap: 20px;   
-}
-
-.contact-text-container h2{
-    font-size: 3rem;
-    color: var(--blueDark);
 }
 
 .contact-text-container h3{
@@ -413,7 +442,6 @@ form textarea{
         background: white;
         border-top: .1rem solid rgba(0, 0, 0, .2);
         box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
-        z-index: 1;
         display: none;
     }
 
@@ -441,12 +469,12 @@ form textarea{
     .about-complete-containers img{
         width: 600px;
     }
-    .contact{
+    .contact-container{
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr;
       }
 
-    .contact form {
+    .contact-container form {
         grid-column: span 2; /* El elemento ocupa dos columnas */
         text-align: center; /* Centrar el contenido */
       }
@@ -497,7 +525,7 @@ form textarea{
         font-size: 1rem;
     }
 
-    .contact {
+    .contact-container {
         display: flex;
         flex-direction: column;
         justify-content: center;
