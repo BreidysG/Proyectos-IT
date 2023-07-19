@@ -415,7 +415,12 @@ form textarea{
     align-items: center;
     background-color:#6d6c6c2e ;
   }
-
+  footer p{
+    font-style: italic;
+    color: var(--blueKing);
+    padding: 12px;
+    margin-bottom: 5px;
+  }
   .footer-container{
     display: flex;
   }
@@ -423,12 +428,7 @@ form textarea{
     width: 200px;
     cursor: pointer;
   }
-  .footer-container p{
-    font-style: italic;
-    color: var(--blueKing);
-    padding: 12px;
-    margin-bottom: 5px;
-  }
+ 
   
 
   @media (max-width: 1200px) {
@@ -439,6 +439,7 @@ form textarea{
 
     .about-complete-containers img{
         width: 450px;
+        margin-left: 0;
     }
     .services-card-container{
         justify-content: center;
@@ -489,6 +490,7 @@ form textarea{
     }
     .about-complete-containers img{
         width: 600px;
+        margin-top: 20px;
     }
     .contact-container{
         grid-template-columns: 1fr 1fr;
@@ -524,7 +526,7 @@ form textarea{
 
     .btn{
         width: 100px;
-        height: 40px;
+        height: 50px;
         font-size: 1rem;
     }
 
@@ -558,7 +560,7 @@ form textarea{
         align-items: center;
     }
 
-    .contact-text-container h2{
+    .contact h2{
         font-size: 2.5rem;
     }
 
@@ -598,7 +600,15 @@ form textarea{
     .about-complete-containers img{
         width: 350px;
     }
-  }
+
+    .services-card-icon {
+        width: 100px;
+        height: 100px;
+    }
+    .services-card-icon {
+        font-size: 3rem;
+    }
+}
 
   @media (max-width: 422px){
     section{
@@ -607,7 +617,7 @@ form textarea{
     .home-container h1 {
         font-size: 2.7rem;
     }
-    .about h2 {
+    .about h2, .about-complete h2 {
         font-size: 2.2rem;
     }
     .about-img img {
@@ -616,7 +626,7 @@ form textarea{
     .about-text h3 {
         font-size: 1.3rem;
     }
-
+    
     .about-complete-containers img{
         width: 300px;
     }
@@ -626,7 +636,7 @@ form textarea{
     .services-card-container {
         grid-template-columns: minmax(250px, 300px);
     }
-    .contact-text-container h2 {
+    .contact h2 {
         font-size: 2.2rem;
     }
     .contact-text-container h3 {
@@ -651,15 +661,15 @@ form textarea{
         font-size: 2rem;
     }
     .about-img img {
-        width: 330px;
+        width: 300px;
     }
     .services .services-text h2 {
         font-size: 2rem;
     }
-    .contact-text-container h2 {
+    .contact h2 {
         font-size: 2rem;
     }
     .contact-text-container h3 {
-        font-size: 1rem;
+        font-size: 1.3rem;
     }
   }
