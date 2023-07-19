@@ -163,20 +163,21 @@
                     </div>
                 </div>
                 
-                <form action="#" method="#">
+                <form action="correos.php" method="POST" id="form">
                     <label for="nombre">Nombre:</label>
                     <input type="text" id="nombre" name="nombre" required>
                   
                     <label for="correo">Correo electrónico:</label>
                     <input type="email" id="correo" name="correo" required>
                   
-                    <label for="telefono">Teléfono (Opcional)</label>
-                    <input type="tel" id="telefono" name="telefono" required>
+                    <label for="asunto">Asunto</label>
+                    <input type="text" id="asunto" name="asunto" required>
                   
                     <label for="mensaje">Mensaje:</label>
                     <textarea id="mensaje" rows="5" name="mensaje" required></textarea>
                   
                     <button type="submit">Enviar</button>
+                    <p class="warnings" id="warnings"></p>
                   </form>
             </div>
 

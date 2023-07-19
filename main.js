@@ -7,6 +7,46 @@ const btnReadMore = document.querySelector("#btn-read-more");
 const btnBack = document.querySelector("#btn-back");
 const sectionAboutComplete = document.querySelector("#about-complete");
 const scroll = ScrollReveal();
+
+//for form:
+const nombre = document.getElementById("nombre");
+const email = document.getElementById("correo");
+const affair = document.getElementById("asunto");
+const message = document.getElementById("mensaje");
+const form = document.getElementById("form");
+const warnings = document.getElementById("warnings");
+
+form.addEventListener("submit", e=>{
+    let warning ="";
+    let regexEmail = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i
+    let entrar = false;
+    if(nombre.value.length < 5){
+        warning += "El nombre no es valido <br>";
+        entrar = true;
+    }
+
+    if(!regexEmail.test(email.value)){
+        warning += "El email no es valido <br>";
+        entrar = true;
+    }
+
+    if(affair.value.length < 5){
+        warning += "El asunto no es muy corto <br>";
+        entrar = true;
+    }
+
+    if(message.value.length < 20 ){
+        warning += "El mensaje es muy corto <br>";
+        entrar = true;
+    }
+
+    if(entrar){
+        warnings.innerHTML = warning;
+        e.preventDefault();
+    }
+});
+
+// see section about complete: 
 btnReadMore.addEventListener("click", function(){
     showSection("#about-complete", true);
 });
@@ -15,7 +55,7 @@ btnBack.addEventListener("click", function(){
     showSection("#about-complete", false);
 });
 
-
+//See menu: 
 menu.addEventListener("click", ()=>{
     navLinks.classList.toggle("visivility");
     if(icon.classList.contains("bx")){
@@ -31,6 +71,7 @@ menu.addEventListener("click", ()=>{
     })
 });
 
+// Links section about Complete
 function showSection(section, condition){
     if(condition){
         document.querySelectorAll("section").forEach(function(section){
@@ -69,6 +110,7 @@ function showSection(section, condition){
    
 }
 
+//Scroll Reveal
 scroll.reveal("nav", {
     duration: 2000,
     delay: 200,

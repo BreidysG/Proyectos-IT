@@ -407,6 +407,14 @@ form textarea{
     background-color: var(--blueKing);
   }
 
+  .warnings{
+    width: 200px;
+    text-align: center;
+    margin: auto;
+    color: var(--blueDark);
+    padding-top: 20px;
+  }
+
   footer{
     margin-top: 40px;
     display: flex;
