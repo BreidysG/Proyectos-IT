@@ -332,6 +332,7 @@ nav .burguer-menu-container{
     text-align: left;
 }
 
+
 .contact-info-container{
     padding-left: 50px;
 }
@@ -345,6 +346,20 @@ nav .burguer-menu-container{
     font-style: italic;
     color: var(--blueclarity);
 }
+
+.contact-icon-container{
+    display: flex;
+    margin-top: 50px;
+    justify-content:flex-start;
+}
+
+.contact-icon-container a i{
+    font-size: 60px;
+    color: var(--blueclarity);
+  }
+.contact-icon-container a i:hover{
+    color: var(--blueKing);
+  }
 
 form {
     width: 80%;
@@ -395,22 +410,27 @@ form textarea{
   footer{
     margin-top: 40px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    flex-direction: column-reverse;
     align-items: center;
+    background-color:#6d6c6c2e ;
   }
-  footer a img{
+
+  .footer-container{
+    display: flex;
+  }
+  .footer-container a img{
     width: 200px;
     cursor: pointer;
   }
-
-  footer div i{
-    font-size: 40px;
-    color: var(--blueclarity);
-  }
-  footer div i:hover{
+  .footer-container p{
+    font-style: italic;
     color: var(--blueKing);
+    padding: 12px;
+    margin-bottom: 5px;
   }
+  
+
   @media (max-width: 1200px) {
 
     .about-img img{
@@ -487,6 +507,11 @@ form textarea{
     .services-card-container{
         grid-template-columns: minmax(250px, 350px);
     }
+
+    .contact-icon-container a i{
+        font-size: 50px;
+        color: var(--blueclarity);
+      }
   }
   @media (max-width: 640px) {
     .home-container h1{
@@ -538,7 +563,7 @@ form textarea{
     }
 
     .contact-text-container h3{
-        font-size: 1rem;
+        font-size: 1.2rem;
     }
 
     .contact-text-container p{
@@ -547,6 +572,10 @@ form textarea{
 
     .contact-info-container{
         align-self: flex-start;
+    }
+
+    .contact-icon-container{
+        justify-content:space-evenly;
     }
 
   } 
@@ -572,6 +601,9 @@ form textarea{
   }
 
   @media (max-width: 422px){
+    section{
+        min-height: 60vh;
+    }
     .home-container h1 {
         font-size: 2.7rem;
     }
