@@ -14,8 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   
   if (mail($to, $asunto, $message, $header)) {
     echo "<script>alert(`¡Correo enviado exisotamente!`)</script>";
-  } else {
     echo "<script> setTimeout(\"location.href=`index.html`\", 1000) </script>";
-  }
+  } 
 }
 ?>
