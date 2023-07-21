@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $mensaje = $_POST["mensaje"];
   $header = "Enviado desde la página de Proyectos IT";
 
-  $to = "breidysgutierrez8@gmail.com";
+  $to = "info@proyectos-it.com";
   $message = "Nombre: $nombre\n";
   $message .= "Correo Electrónico: $correo\n";
   $message .= "Mensaje: $mensaje\n";
