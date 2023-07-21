@@ -16,6 +16,8 @@ const message = document.getElementById("mensaje");
 const form = document.getElementById("form");
 const warnings = document.getElementById("warnings");
 
+window.history.pushState(null, "/Home", "index.html");
+
 form.addEventListener("submit", e=>{
     let warning ="";
     let regexEmail = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i
@@ -48,11 +50,11 @@ form.addEventListener("submit", e=>{
 
 // see section about complete: 
 btnReadMore.addEventListener("click", function(){
-    showSection("#about-complete", true);
+    showSection("about-complete", true);
 });
 
 btnBack.addEventListener("click", function(){
-    showSection("#about-complete", false);
+    showSection("about-complete", false);
 });
 
 //See menu: 
@@ -74,41 +76,43 @@ menu.addEventListener("click", ()=>{
 // Links section about Complete
 function showSection(section, condition){
     if(condition){
-        document.querySelectorAll("section").forEach(function(section){
-            section.style.display = "none";
+        document.querySelectorAll("section").forEach(function(seccion){
+            if(seccion.classList.contains(section)){
+                seccion.style.display = "flex";
+                window.history.pushState(null, "/About", "index.html");
+            }else{
+                seccion.style.display = "none";
+            } 
         });
-        document.querySelector(section).style.display = "flex";
-        window.history.pushState(null, null, section);
-       
+        
         links.forEach(function(link){
             if(link.id != "link-about"){
                 link.classList.add("link-about-section");
             }else{
                 link.classList.add("link-about");
-            }
-            
-       })
+            }  
+       });
     }else{
-        document.querySelectorAll("section").forEach(function(section){
-            if(section.id == "contact"){
-                section.style.display = "grid";
-            }else{
-                section.style.display = "block";
+        document.querySelectorAll("section").forEach(function(seccion){
+            if(seccion.id == "contact"){
+                seccion.style.display = "grid";
+            }else if(seccion.id == "about-complete"){
+                seccion.style.display = "none";
+            }else {
+                seccion.style.display = "block";
             }
-            
+            window.history.pushState(null, "/Home", "index.html");
         });
-
-        document.querySelector(section).style.display = "none";
 
         links.forEach(function(link){
             if(link.id != "link-about"){
                 link.classList.remove("link-about-section");
             }
-       })
-        window.history.back();
+       });
     }
-   
+  
 }
+
 
 //Scroll Reveal
 scroll.reveal("nav", {
