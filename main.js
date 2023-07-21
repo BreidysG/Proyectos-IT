@@ -16,10 +16,6 @@ const message = document.getElementById("mensaje");
 const form = document.getElementById("form");
 const warnings = document.getElementById("warnings");
 
-currentUrl = window.location.href;
-let baseUrl = currentUrl.split(".com")[0];
-window.history.pushState(null, null, baseUrl);
-
 form.addEventListener("submit", e=>{
     let warning ="";
     let regexEmail = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i
