@@ -16,8 +16,6 @@ const message = document.getElementById("mensaje");
 const form = document.getElementById("form");
 const warnings = document.getElementById("warnings");
 
-window.history.pushState(null, "/Home", "index.html");
-
 form.addEventListener("submit", e=>{
     let warning ="";
     let regexEmail = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i
@@ -101,7 +99,6 @@ function showSection(section, condition){
             }else {
                 seccion.style.display = "block";
             }
-            window.history.pushState(null, "/Home", "index.html");
         });
 
         links.forEach(function(link){
