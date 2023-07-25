@@ -1,6 +1,4 @@
-
-
-/* <?php
+<?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   define("CLAVE", "6LfeXk8nAAAAAEXfQ-Vzi6KTpx97M6ATu-1jWR5A");
   $token = $_POST["g-recaptcha-response"];
@@ -18,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   print_r($datos);
 
 
-  if($datos["success"] == 1 && $datos["score"] >=0.5){
+  /*if($datos["success"] == 1 && $datos["score"] >=0.5){
     $nombre = $_POST["nombre"];
     $email = $_POST["correo"];
     $asunto = $_POST["asunto"];
@@ -39,5 +37,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "<script> setTimeout(\"location.href=`index.html`\", 1000) </script>";
 
   }
-}
+}*/
 ?>
