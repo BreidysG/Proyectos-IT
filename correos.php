@@ -14,6 +14,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   curl_close($cu);
 
   $datos = json_decode($response, true);
+  print_r($datos["success"]);
+  print_r($datos["score"]);
 
   if($datos["success"] == 1 && $datos["score"] >=0.5){
     $nombre = $_POST["nombre"];
