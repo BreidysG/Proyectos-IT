@@ -21,45 +21,61 @@ const warnings = document.getElementById("warnings");
 
 
 
-    form.addEventListener("submit", e=>{
-        let warning ="";
-        let regexEmail = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i
-        let entrar = false;
-        if(nombre.value.length < 5){
-            warning += "El nombre no es valido <br>";
-            entrar = true;
-        }
-    
-        if(!regexEmail.test(email.value)){
-            warning += "El email no es valido <br>";
-            entrar = true;
-        }
-    
-        if(affair.value.length < 5){
-            warning += "El asunto no es muy corto <br>";
-            entrar = true;
-        }
-    
-        if(message.value.length < 20 ){
-            warning += "El mensaje es muy corto <br>";
-            entrar = true;
-        }
-    
-        if(entrar){
-            warnings.innerHTML = warning;
-            e.preventDefault();
-        } else{
-            //recaptcha:
-            grecaptcha.ready(function() {
-                grecaptcha.execute('6LfeXk8nAAAAAMGQJlZA3vQq7dIwYeg6vejcvcSe', {
-                  action: 'validarUsuario'
-                  }).then(function(token) {
-                    form.innerHTML += `<input type="hidden" name="token" value="`+token+`">`;
-                    form.innerHTML += `<input type="hidden" name="token" value="validarUsuario">`;
-                });
-        }); 
-        }
-    });   
+form.addEventListener("submit", e => {
+    let warning = "";
+    let regexEmail = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i;
+    let entrar = false;
+  
+    if (nombre.value.length < 5) {
+      warning += "El nombre no es válido <br>";
+      entrar = true;
+    }
+  
+    if (!regexEmail.test(email.value)) {
+      warning += "El email no es válido <br>";
+      entrar = true;
+    }
+  
+    if (affair.value.length < 5) {
+      warning += "El asunto no es muy corto <br>";
+      entrar = true;
+    }
+  
+    if (message.value.length < 20) {
+      warning += "El mensaje es muy corto <br>";
+      entrar = true;
+    }
+  
+    if (entrar) {
+      warnings.innerHTML = warning;
+      e.preventDefault();
+    } else {
+      // recaptcha:
+      grecaptcha.ready(function() {
+        grecaptcha.execute('6LfeXk8nAAAAAMGQJlZA3vQq7dIwYeg6vejcvcSe', {
+          action: 'validarUsuario'
+        }).then(function(token) {
+          // Crear elementos de entrada ocultos
+          let tokenInput = document.createElement('input');
+          tokenInput.setAttribute('type', 'hidden');
+          tokenInput.setAttribute('name', 'token');
+          tokenInput.setAttribute('value', token);
+  
+          let actionInput = document.createElement('input');
+          actionInput.setAttribute('type', 'hidden');
+          actionInput.setAttribute('name', 'action');
+          actionInput.setAttribute('value', 'validarUsuario');
+  
+          // Agregar los campos ocultos al formulario
+          form.appendChild(tokenInput);
+          form.appendChild(actionInput);
+  
+          // Enviar el formulario
+          form.submit();
+        });
+      });
+    }
+  });
 
 // see section about complete: 
 btnReadMore.addEventListener("click", function(){
