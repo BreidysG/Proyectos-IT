@@ -14,8 +14,6 @@
   var_dump($response);
   $rtaJson = json_decode($response, true);
   var_dump($rtaJson);
-
-  die();
   $ok = $rtaJson["success"]; 
   if($ok === false){
     echo "<script>alert('¡Error de reCAPTCHA!');</script>";
