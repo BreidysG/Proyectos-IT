@@ -25,39 +25,38 @@ grecaptcha.ready(function() {
       iToken.value= respuesta_token;
     });
   });
-  document.addEventListener("DOMContentLoaded", function() {
-    form.addEventListener("submit", e =>{
-        let warning = "";
-        let regexEmail = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i;
-        let entrar = false;
-    
-        if (nombre.value.length < 5) {
-          warning += "El nombre no es válido <br>";
-          entrar = true;
-        }
-    
-        if (!regexEmail.test(email.value)) {
-          warning += "El email no es válido <br>";
-          entrar = true;
-        }
-    
-        if (affair.value.length < 5) {
-          warning += "El asunto no es muy corto <br>";
-          entrar = true;
-        }
-    
-        if (message.value.length < 20) {
-          warning += "El mensaje es muy corto <br>";
-          entrar = true;
-        }
-    
-        if (entrar) {
-          warnings.innerHTML = warning;
-          e.preventDefault();
-        }
-      });
-  });
 
+form.addEventListener("submit", e =>{
+    e.preventDefault();
+    let warning = "";
+    let regexEmail = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i;
+    let entrar = false;
+
+    if (nombre.value.length < 5) {
+      warning += "El nombre no es válido <br>";
+      entrar = true;
+    }
+
+    if (!regexEmail.test(email.value)) {
+      warning += "El email no es válido <br>";
+      entrar = true;
+    }
+
+    if (affair.value.length < 5) {
+      warning += "El asunto no es muy corto <br>";
+      entrar = true;
+    }
+
+    if (message.value.length < 20) {
+      warning += "El mensaje es muy corto <br>";
+      entrar = true;
+    }
+
+    if (entrar) {
+      warnings.innerHTML = warning;
+      e.preventDefault();
+    }
+  });
 
 // see section about complete: 
 btnReadMore.addEventListener("click", function(){
