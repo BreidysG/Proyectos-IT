@@ -27,7 +27,6 @@ grecaptcha.ready(function() {
   });
 
 form.addEventListener("submit", e =>{
-    e.preventDefault();
     let warning = "";
     let regexEmail = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i;
     let entrar = false;
