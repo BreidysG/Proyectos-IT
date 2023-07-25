@@ -6,7 +6,10 @@ const icon = document.querySelector("#menu i");
 const btnReadMore = document.querySelector("#btn-read-more");
 const btnBack = document.querySelector("#btn-back");
 const sectionAboutComplete = document.querySelector("#about-complete");
+const btnEntrar = document.getElementById("entrar");
 const scroll = ScrollReveal();
+
+
 
 //for form:
 const nombre = document.getElementById("nombre");
@@ -16,35 +19,48 @@ const message = document.getElementById("mensaje");
 const form = document.getElementById("form");
 const warnings = document.getElementById("warnings");
 
-form.addEventListener("submit", e=>{
-    let warning ="";
-    let regexEmail = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i
-    let entrar = false;
-    if(nombre.value.length < 5){
-        warning += "El nombre no es valido <br>";
-        entrar = true;
-    }
 
-    if(!regexEmail.test(email.value)){
-        warning += "El email no es valido <br>";
-        entrar = true;
-    }
 
-    if(affair.value.length < 5){
-        warning += "El asunto no es muy corto <br>";
-        entrar = true;
-    }
+    form.addEventListener("submit", e=>{
+        let warning ="";
+        let regexEmail = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i
+        let entrar = false;
+        if(nombre.value.length < 5){
+            warning += "El nombre no es valido <br>";
+            entrar = true;
+        }
+    
+        if(!regexEmail.test(email.value)){
+            warning += "El email no es valido <br>";
+            entrar = true;
+        }
+    
+        if(affair.value.length < 5){
+            warning += "El asunto no es muy corto <br>";
+            entrar = true;
+        }
+    
+        if(message.value.length < 20 ){
+            warning += "El mensaje es muy corto <br>";
+            entrar = true;
+        }
+    
+        if(entrar){
+            warnings.innerHTML = warning;
+        }
 
-    if(message.value.length < 20 ){
-        warning += "El mensaje es muy corto <br>";
-        entrar = true;
-    }
-
-    if(entrar){
-        warnings.innerHTML = warning;
+        //recaptcha:
+        grecaptcha.ready(function() {
+            grecaptcha.execute('6LfeXk8nAAAAAMGQJlZA3vQq7dIwYeg6vejcvcSe', {
+              action: 'validarUsuario'
+              }).then(function(token) {
+                form.innerHTML += `<input type="text" name="token" value="`+token+`">`;
+                form.innerHTML += `<input type="text" name="token" value="validarUsuario">`;
+            });
         e.preventDefault();
-    }
+    });
 });
+
 
 // see section about complete: 
 btnReadMore.addEventListener("click", function(){
@@ -130,3 +146,7 @@ scroll.reveal(".home-container, .about-text, .services-text, .services-card, .co
     origin: 'left',
     distance: '80px',
 });
+
+
+
+
