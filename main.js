@@ -59,8 +59,9 @@ form.addEventListener("submit", e => {
   
     if (entrar) {
       warnings.innerHTML = warning;
-      e.preventDefault();
+      
     } 
+    e.preventDefault();
   });
 
 // see section about complete: 
