@@ -1,10 +1,11 @@
 
-<?php
+
+/* <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   define("CLAVE", "6LfeXk8nAAAAAEXfQ-Vzi6KTpx97M6ATu-1jWR5A");
-  $token = $_POST["token"];
+  $token = $_POST["g-recaptcha-response"];
   $action = $_POST["action"];
-
+  
   $cu = curl_init();
   curl_setopt($cu, CURLOPT_URL, "https://www.google.com/recaptcha/api/siteverify");
   curl_setopt($cu, CURLOPT_POST, 1);
@@ -12,12 +13,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   curl_setopt($cu, CURLOPT_RETURNTRANSFER, true);
   $response = curl_exec($cu);
   curl_close($cu);
-
+  
   $datos = json_decode($response, true);
   print_r($datos);
 
 
-  /*if($datos["success"] == 1 && $datos["score"] >=0.5){
+  if($datos["success"] == 1 && $datos["score"] >=0.5){
     $nombre = $_POST["nombre"];
     $email = $_POST["correo"];
     $asunto = $_POST["asunto"];
@@ -37,6 +38,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "<script>alert(`¡Captcha Invalido!`)</script>";
     echo "<script> setTimeout(\"location.href=`index.html`\", 1000) </script>";
 
-  }*/
+  }
 }
 ?>
