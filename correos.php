@@ -23,8 +23,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $recaptchaContext = stream_context_create($recaptchaOptions);
   $recaptchaResult = file_get_contents($recaptchaUrl, false, $recaptchaContext);
   $recaptchaResponseData = json_decode($recaptchaResult, true);
+
+  print_r($recaptchaResponseData);
   
-  if ($recaptchaResponseData['success'] && $recaptchaResponseData['score'] >= 0.5) {
+  /*if ($recaptchaResponseData['success'] && $recaptchaResponseData['score'] >= 0.5) {
     $nombre = $_POST["nombre"];
     $email = $_POST["correo"];
     $asunto = $_POST["asunto"];
