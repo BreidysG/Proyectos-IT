@@ -14,8 +14,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   curl_close($cu);
 
   $datos = json_decode($response, true);
+  print_r($datos);
 
-  if($datos["success"] == 1 && $datos["score"] >=0.5){
+
+  /*if($datos["success"] == 1 && $datos["score"] >=0.5){
     $nombre = $_POST["nombre"];
     $email = $_POST["correo"];
     $asunto = $_POST["asunto"];
@@ -33,10 +35,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } 
   } else {
     echo "<script>alert(`¡Captcha Invalido!`)</script>";
-    print_r($datos["success"]);
-  print_r($datos["score"]);
     echo "<script> setTimeout(\"location.href=`index.html`\", 1000) </script>";
 
-  }
+  }*/
 }
 ?>

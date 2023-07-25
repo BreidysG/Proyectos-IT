@@ -47,20 +47,19 @@ const warnings = document.getElementById("warnings");
     
         if(entrar){
             warnings.innerHTML = warning;
+            e.preventDefault();
+        } else{
+            //recaptcha:
+            grecaptcha.ready(function() {
+                grecaptcha.execute('6Lelh1InAAAAADz5rTjCntQRn4DNn70qDlSrKlOH', {
+                  action: 'validarUsuario'
+                  }).then(function(token) {
+                    form.innerHTML += `<input type="hidden" name="token" value="`+token+`">`;
+                    form.innerHTML += `<input type="hidden" name="token" value="validarUsuario">`;
+                });
+        }); 
         }
-
-        //recaptcha:
-        grecaptcha.ready(function() {
-            grecaptcha.execute('6Lelh1InAAAAADz5rTjCntQRn4DNn70qDlSrKlOH', {
-              action: 'validarUsuario'
-              }).then(function(token) {
-                form.innerHTML += `<input type="hidden" name="token" value="`+token+`">`;
-                form.innerHTML += `<input type="hidden" name="token" value="validarUsuario">`;
-            });
-        e.preventDefault();
-    });
-});
-
+    });   
 
 // see section about complete: 
 btnReadMore.addEventListener("click", function(){
