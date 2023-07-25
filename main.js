@@ -53,13 +53,9 @@ form.addEventListener("submit", function(e){
 
     if (entrar) {
       warnings.innerHTML = warning;
-      return;
       e.preventDefault();
     }
   });
-
-   
-   
 
 // see section about complete: 
 btnReadMore.addEventListener("click", function(){
