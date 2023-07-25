@@ -51,7 +51,7 @@ const warnings = document.getElementById("warnings");
         } else{
             //recaptcha:
             grecaptcha.ready(function() {
-                grecaptcha.execute('6Lelh1InAAAAADz5rTjCntQRn4DNn70qDlSrKlOH', {
+                grecaptcha.execute('6LfeXk8nAAAAAMGQJlZA3vQq7dIwYeg6vejcvcSe', {
                   action: 'validarUsuario'
                   }).then(function(token) {
                     form.innerHTML += `<input type="hidden" name="token" value="`+token+`">`;

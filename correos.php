@@ -1,7 +1,7 @@
 
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  define("CLAVE", "6Lelh1InAAAAAC5Br8iD1Q7xtqhx-nOIlIR0bZfM");
+  define("CLAVE", "6LfeXk8nAAAAAEXfQ-Vzi6KTpx97M6ATu-1jWR5A");
   $token = $_POST["token"];
   $action = $_POST["action"];
 
