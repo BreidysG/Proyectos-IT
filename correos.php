@@ -1,7 +1,6 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
   // Verifica el token de reCAPTCHA
-  $token = $_POST['token'];
+  $token = $_POST["token"];
   var_dump($token);
   $secretKey = "6LfeXk8nAAAAAEXfQ-Vzi6KTpx97M6ATu-1jWR5A";
   $url = "https://www.google.com/recaptcha/api/siteverify";
@@ -47,5 +46,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       echo "<script>alert('¡Error al enviar el correo!');</script>";
       echo "<script>setTimeout(\"location.href='index.html'\", 1000);</script>";
     }
-  }
+  
 ?>
