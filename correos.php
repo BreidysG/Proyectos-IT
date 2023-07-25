@@ -1,7 +1,7 @@
 
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  define("CLAVE", "6LfeXk8nAAAAAEXfQ-Vzi6KTpx97M6ATu-1jWR5A");
+  define("CLAVE", "6Lelh1InAAAAAC5Br8iD1Q7xtqhx-nOIlIR0bZfM");
   $token = $_POST["token"];
   $action = $_POST["action"];
 
@@ -14,8 +14,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   curl_close($cu);
 
   $datos = json_decode($response, true);
-  print_r($datos["success"]);
-  print_r($datos["score"]);
 
   if($datos["success"] == 1 && $datos["score"] >=0.5){
     $nombre = $_POST["nombre"];
@@ -35,6 +33,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } 
   } else {
     echo "<script>alert(`¡Captcha Invalido!`)</script>";
+    print_r($datos["success"]);
+  print_r($datos["score"]);
     echo "<script> setTimeout(\"location.href=`index.html`\", 1000) </script>";
 
   }
