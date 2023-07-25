@@ -51,7 +51,7 @@ function enviarFormulario(event) {
     }
 
     grecaptcha.ready(function() {
-      grecaptcha.execute('TU_CLAVE_DE_SITIO', { action: 'nombre_de_la_accion' }).then(function(token) {
+      grecaptcha.execute('6LfeXk8nAAAAAMGQJlZA3vQq7dIwYeg6vejcvcSe', { action: 'nombre_de_la_accion' }).then(function(token) {
         document.getElementById('recaptchaToken').value = token;
 
         // Continúa con el envío del formulario aquí

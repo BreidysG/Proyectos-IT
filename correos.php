@@ -2,7 +2,7 @@
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   // Verifica el token de reCAPTCHA
   $recaptchaToken = $_POST['recaptchaToken'];
-  $secretKey = "TU_CLAVE_SECRETA";
+  $secretKey = "6LfeXk8nAAAAAEXfQ-Vzi6KTpx97M6ATu-1jWR5A";
   $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret={$secretKey}&response={$recaptchaToken}");
   $response = json_decode($response);
 
