@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $cu = curl_init();
   curl_setopt($cu, CURLOPT_URL, "https://www.google.com/recaptcha/api/siteverify");
   curl_setopt($cu, CURLOPT_POST, 1);
-  curl_setopt($cu, CURLOPT_POSTFIELDS, http_build_query(array("secret" => CLAVE, "reponse" => $token)));
+  curl_setopt($cu, CURLOPT_POSTFIELDS, http_build_query(array("secret" => CLAVE, "response" => $token)));
   curl_setopt($cu, CURLOPT_RETURNTRANSFER, true);
   $response = curl_exec($cu);
   curl_close($cu);
