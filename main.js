@@ -21,56 +21,44 @@ const warnings = document.getElementById("warnings");
 
 function enviarFormulario(event) {
     event.preventDefault();
-    grecaptcha.ready(function() {
-      grecaptcha.execute('6LfeXk8nAAAAAMGQJlZA3vQq7dIwYeg6vejcvcSe', { action: 'validarUsuario' }).then(function(token) {
-        // Agrega el token de reCAPTCHA al formulario
-        document.getElementById('form').insertAdjacentHTML('beforeend', '<input type="text" name="token" value="' + token + '">');
-
-        // Valida el token de reCAPTCHA
-        const response = grecaptcha.getResponse();
-        if (response) {
-          // El token es válido, procede a enviar el formulario
-          form.submit();
-        } else {
-          // El token es inválido, muestra un mensaje de error
-          warnings.innerHTML = "El captcha es inválido";
-        }
-      });
-    });
-  }
-
-
-form.addEventListener("submit", e => {
     let warning = "";
     let regexEmail = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i;
     let entrar = false;
-  
+
     if (nombre.value.length < 5) {
       warning += "El nombre no es válido <br>";
       entrar = true;
     }
-  
+
     if (!regexEmail.test(email.value)) {
       warning += "El email no es válido <br>";
       entrar = true;
     }
-  
+
     if (affair.value.length < 5) {
       warning += "El asunto no es muy corto <br>";
       entrar = true;
     }
-  
+
     if (message.value.length < 20) {
       warning += "El mensaje es muy corto <br>";
       entrar = true;
     }
-  
+
     if (entrar) {
       warnings.innerHTML = warning;
-      e.preventDefault();
-    } 
-    
-  });
+      return;
+    }
+
+    grecaptcha.ready(function() {
+      grecaptcha.execute('TU_CLAVE_DE_SITIO', { action: 'nombre_de_la_accion' }).then(function(token) {
+        document.getElementById('recaptchaToken').value = token;
+
+        // Continúa con el envío del formulario aquí
+        form.submit();
+      });
+    });
+  }
 
 // see section about complete: 
 btnReadMore.addEventListener("click", function(){
