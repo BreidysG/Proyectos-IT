@@ -54,8 +54,8 @@ const warnings = document.getElementById("warnings");
             grecaptcha.execute('6LfeXk8nAAAAAMGQJlZA3vQq7dIwYeg6vejcvcSe', {
               action: 'validarUsuario'
               }).then(function(token) {
-                form.innerHTML += `<input type="text" name="token" value="`+token+`">`;
-                form.innerHTML += `<input type="text" name="token" value="validarUsuario">`;
+                form.innerHTML += `<input type="hidden" name="token" value="`+token+`">`;
+                form.innerHTML += `<input type="hidden" name="token" value="validarUsuario">`;
             });
         e.preventDefault();
     });
