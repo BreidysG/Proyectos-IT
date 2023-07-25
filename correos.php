@@ -36,6 +36,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "<script>alert(`¡Captcha Invalido!`)</script>";
     echo "<script> setTimeout(\"location.href=`index.html`\", 1000) </script>";
 
-  }
-}*/
+  }*/
+}
 ?>
