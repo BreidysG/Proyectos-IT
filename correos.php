@@ -5,8 +5,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $secretKey = "6LfeXk8nAAAAAEXfQ-Vzi6KTpx97M6ATu-1jWR5A";
   $url = "https://www.google.com/recaptcha/api/siteverify";
   $response = file_get_contents("$url?secret=$secretKey&response=$token");
-
+var_dump($response);
   $rtaJson = json_decode($response, true);
+  var_dump($rtaJson);
+
+  die();
   $ok = $rtaJson["success"]; 
   if($ok === false){
     echo "<script>alert('¡Error de reCAPTCHA!');</script>";
