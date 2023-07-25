@@ -25,7 +25,7 @@
     $asunto = $_POST["asunto"];
     $mensaje = $_POST["mensaje"];
     $header = "Enviado desde la página de Proyectos IT";
-    $to = "breidysgutierrez8@gmail.com";
+    $to = "info@proyectos-it.com";
     $message = "Nombre: $nombre\n";
     $message .= "Correo Electrónico: $email\n";
     $message .= "Mensaje: $mensaje\n";
