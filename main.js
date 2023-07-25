@@ -24,15 +24,23 @@ function enviarFormulario(event) {
     grecaptcha.ready(function() {
       grecaptcha.execute('6LfeXk8nAAAAAMGQJlZA3vQq7dIwYeg6vejcvcSe', { action: 'validarUsuario' }).then(function(token) {
         // Agrega el token de reCAPTCHA al formulario
-        document.getElementById('form').insertAdjacentHTML('beforeend', '<input type="hidden" name="token" value="' + token + '">');
-  
-        // Envía el formulario
-        document.getElementById('form').submit();
+        document.getElementById('form').insertAdjacentHTML('beforeend', '<input type="text" name="token" value="' + token + '">');
+
+        // Valida el token de reCAPTCHA
+        const response = grecaptcha.getResponse();
+        if (response) {
+          // El token es válido, procede a enviar el formulario
+          form.submit();
+        } else {
+          // El token es inválido, muestra un mensaje de error
+          warnings.innerHTML = "El captcha es inválido";
+        }
       });
     });
   }
 
-/*form.addEventListener("submit", e => {
+
+form.addEventListener("submit", e => {
     let warning = "";
     let regexEmail = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i;
     let entrar = false;
@@ -59,10 +67,10 @@ function enviarFormulario(event) {
   
     if (entrar) {
       warnings.innerHTML = warning;
-      
+      e.preventDefault();
     } 
-    e.preventDefault();
-  });*/
+    
+  });
 
 // see section about complete: 
 btnReadMore.addEventListener("click", function(){
