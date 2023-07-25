@@ -19,7 +19,18 @@ const message = document.getElementById("mensaje");
 const form = document.getElementById("form");
 const warnings = document.getElementById("warnings");
 
-
+function enviarFormulario(event) {
+    event.preventDefault();
+    grecaptcha.ready(function() {
+      grecaptcha.execute('6LfeXk8nAAAAAMGQJlZA3vQq7dIwYeg6vejcvcSe', { action: 'validarUsuario' }).then(function(token) {
+        // Agrega el token de reCAPTCHA al formulario
+        document.getElementById('form').insertAdjacentHTML('beforeend', '<input type="hidden" name="token" value="' + token + '">');
+  
+        // Envía el formulario
+        document.getElementById('form').submit();
+      });
+    });
+  }
 
 form.addEventListener("submit", e => {
     let warning = "";
@@ -49,32 +60,7 @@ form.addEventListener("submit", e => {
     if (entrar) {
       warnings.innerHTML = warning;
       e.preventDefault();
-    } else {
-      // recaptcha:
-      grecaptcha.ready(function() {
-        grecaptcha.execute('6LfeXk8nAAAAAMGQJlZA3vQq7dIwYeg6vejcvcSe', {
-          action: 'validarUsuario'
-        }).then(function(token) {
-          // Crear elementos de entrada ocultos
-          let tokenInput = document.createElement('input');
-          tokenInput.setAttribute('type', 'hidden');
-          tokenInput.setAttribute('name', 'token');
-          tokenInput.setAttribute('value', token);
-  
-          let actionInput = document.createElement('input');
-          actionInput.setAttribute('type', 'hidden');
-          actionInput.setAttribute('name', 'action');
-          actionInput.setAttribute('value', 'validarUsuario');
-  
-          // Agregar los campos ocultos al formulario
-          form.appendChild(tokenInput);
-          form.appendChild(actionInput);
-  
-          // Enviar el formulario
-          form.submit();
-        });
-      });
-    }
+    } 
   });
 
 // see section about complete: 
