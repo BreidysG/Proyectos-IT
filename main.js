@@ -19,8 +19,14 @@ const message = document.getElementById("mensaje");
 const form = document.getElementById("form");
 const warnings = document.getElementById("warnings");
 
-function enviarFormulario(event) {
-    event.preventDefault();
+grecaptcha.ready(function() {
+    grecaptcha.execute('6LfeXk8nAAAAAMGQJlZA3vQq7dIwYeg6vejcvcSe', { action: 'formulario' }).then(function(respuesta_token) {
+      const iToken = document.getElementById("token");
+      iToken.value= respuesta_token;
+    });
+  });
+
+form.addEventListener("submit", function(e){
     let warning = "";
     let regexEmail = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i;
     let entrar = false;
@@ -48,17 +54,12 @@ function enviarFormulario(event) {
     if (entrar) {
       warnings.innerHTML = warning;
       return;
+      e.preventDefault();
     }
+  });
 
-    grecaptcha.ready(function() {
-      grecaptcha.execute('6LfeXk8nAAAAAMGQJlZA3vQq7dIwYeg6vejcvcSe', { action: 'nombre_de_la_accion' }).then(function(token) {
-        document.getElementById('recaptchaToken').value = token;
-
-        // Continúa con el envío del formulario aquí
-        form.submit();
-      });
-    });
-  }
+   
+   
 
 // see section about complete: 
 btnReadMore.addEventListener("click", function(){

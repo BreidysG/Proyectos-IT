@@ -1,15 +1,24 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   // Verifica el token de reCAPTCHA
-  $recaptchaToken = $_POST['recaptchaToken'];
+  $token = $_POST['token'];
   $secretKey = "6LfeXk8nAAAAAEXfQ-Vzi6KTpx97M6ATu-1jWR5A";
-  $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret={$secretKey}&response={$recaptchaToken}");
-  $response = json_decode($response);
+  $url = "https://www.google.com/recaptcha/api/siteverify"
+  $response = file_get_contents("$url?secret=$secretKey&response=$token");
 
-  if ($response->success && $response->score >= 0.5) {
-    // El token es válido y la puntuación es aceptable, continúa con el procesamiento del formulario
+  $rtaJson = json_decode($response, true);
+  $ok = $rtaJson["success"]; 
+  if($ok === false){
+    echo "<script>alert('¡Error de reCAPTCHA!');</script>";
+    echo "<script>setTimeout(\"location.href='index.html'\", 1000);</script>";
+    die();
+  }
 
-    // Obtén los datos del formulario
+  if($rtaJson["score"] < 0.7){
+    echo "<script>alert('¡Eres un robot!');</script>";
+    echo "<script>setTimeout(\"location.href='index.html'\", 1000);</script>";
+    die();
+  }
     $nombre = $_POST["nombre"];
     $email = $_POST["correo"];
     $asunto = $_POST["asunto"];
@@ -28,10 +37,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       echo "<script>alert('¡Error al enviar el correo!');</script>";
       echo "<script>setTimeout(\"location.href='index.html'\", 1000);</script>";
     }
-  } else {
-    // El token es inválido o la puntuación es baja, muestra un mensaje de error o toma la acción correspondiente
-    echo "<script>alert('¡Error de reCAPTCHA!');</script>";
-    echo "<script>setTimeout(\"location.href='index.html'\", 1000);</script>";
   }
-}
 ?>
