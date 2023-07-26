@@ -8,8 +8,70 @@ const btnBack = document.querySelector("#btn-back");
 const sectionAboutComplete = document.querySelector("#about-complete");
 const btnEntrar = document.getElementById("entrar");
 const scroll = ScrollReveal();
+const containerServices = document.querySelector('.services-card-container');
 
+const services = [
+    {
+        icon: 'bx bx-signal-5',
+        title: 'Minutos y SMS a gran escala',
+        description: 'Proporcionamos servicios de minutos y mensajes de texto, a través de Internet, permitiendo que las pymes se comuniquen eficientemente con clientes y prestar un excelente servicio al cliente o telemercadeo de sus servicios. Esto amplía su alcance y les brinda oportunidades de crecimiento global.'
+    },
+    {
+        icon: 'bx bx-sort-up',
+        title: 'Software de facturación electrónica y contabilidad',
+        description: 'Ofrecemos soluciones de software que simplifican la emisión de facturas y la gestión contable de las pymes. Estas herramientas ayudan a las empresas a mantener registros precisos, agilizar los procesos financieros y cumplir con los requisitos legales, sin preocuparse por la complejidad de la facturación y su contabilidad.'
+    },
+    {
+        icon: 'bx bxs-business',
+        title: 'Desarrollo de CRM personalizado',
+        description: 'Creamos soluciones de gestión de relaciones con los clientes (CRM) adaptadas a las necesidades de cada empresa. Estas herramientas permiten administrar eficientemente interacciones, aumentar las ventas y fomentar relaciones comerciales sólidas.'
+    },
+    {
+        icon: 'bx bx-support',
+        title: 'Soporte técnico especializado',
+        description: 'Brindamos servicios de soporte técnico integral para resolver problemas relacionados con la tecnología. Nuestro equipo de expertos está disponible para asistir a las empresas de forma remota o presencial segun el caso y resolver las incidencias, configurar los dispositivos y brindar orientación. Esto permite minimizar los tiempos de inactividad.'
+    },
+    {
+        icon: 'bx bx-network-chart',
+        title: 'Redes y conectividad',
+        description: 'Diseñamos, implementamos y mantenemos redes informáticas sólidas, asegurando una conectividad confiable y segura.'
+    },
+    {
+        icon: 'bx bx-shape-square',
+        title: 'Hosting y dominio',
+        description: 'Proporcionamos servicios de venta de hosting y dominio, administración y soporte de páginas web. Promoviendo su presencia en la web, para expandir su alcance y atraer a más clientes.'
+    },
+]
 
+//for services card:
+
+services.forEach(service => {
+
+    
+    const card = document.createElement('div');
+    card.classList.add('services-card');
+  
+    const icon = document.createElement('div');
+    icon.classList.add('services-card-icon');
+    
+    const iconElement = document.createElement('i');
+    const iconClasses = service.icon.split(' ');
+    iconClasses.forEach(className => {
+    iconElement.classList.add(className); 
+    });
+    icon.appendChild(iconElement);
+
+    const title = document.createElement('h2');
+    title.textContent = service.title;
+  
+    const description = document.createElement('p');
+    description.textContent = service.description;
+  
+    card.appendChild(icon);
+    card.appendChild(title);
+    card.appendChild(description);
+    containerServices.appendChild(card);
+  });
 
 //for form:
 const nombre = document.getElementById("nombre");
