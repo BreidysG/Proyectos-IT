@@ -1,7 +1,7 @@
 <?php
   // Verifica el token de reCAPTCHA
   $token = $_POST["token"];
-  $secretKey = "6LfeXk8nAAAAAEXfQ-Vzi6KTpx97M6ATu-1jWR5A";
+  $secretKey = getenv('SECRET_KEY');
   $url = "https://www.google.com/recaptcha/api/siteverify";
   $encodedToken = urlencode($token);
   $encodedSecretKey = urlencode($secretKey);
@@ -25,7 +25,7 @@
     $asunto = $_POST["asunto"];
     $mensaje = $_POST["mensaje"];
     $header = "Enviado desde la página de Proyectos IT";
-    $to = "info@proyectos-it.com";
+    $to = "breidysgutierrez8@gmail.com";
     $message = "Nombre: $nombre\n";
     $message .= "Correo Electrónico: $email\n";
     $message .= "Mensaje: $mensaje\n";
