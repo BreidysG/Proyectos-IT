@@ -1,7 +1,7 @@
 <?php
   // Verifica el token de reCAPTCHA
   $token = $_POST["token"];
-  $secretKey = getenv('SECRET_KEY');
+  $secretKey = "6LfeXk8nAAAAAEXfQ-Vzi6KTpx97M6ATu-1jWR5A";
   $url = "https://www.google.com/recaptcha/api/siteverify";
   $encodedToken = urlencode($token);
   $encodedSecretKey = urlencode($secretKey);
